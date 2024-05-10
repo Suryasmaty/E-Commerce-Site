@@ -37,7 +37,6 @@ main {
   overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Add ellipsis for long text */
   white-space: nowrap; /* Prevent wrapping */
-  text-decoration: underline;
 }
 
 table td,
@@ -74,4 +73,13 @@ table th {
 }
 .product-card:hover {
   transform: scale(1.1);
+}
+
+.product-title strong {
+  text-decoration: underline;
+}
+
+.addToCartBtn {
+  color: #ddd;
+  background-color: black;
 }
