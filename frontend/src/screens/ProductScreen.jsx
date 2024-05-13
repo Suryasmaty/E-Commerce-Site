@@ -1,5 +1,5 @@
-import { Link, useParams } from "react-router-dom";
-import products from "../products";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+//import products from "../products";
 import {
   Button,
   Card,
@@ -10,14 +10,15 @@ import {
   Row,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
+import axios from "axios";
 
 const ProductScreen = () => {
-  const { productId } = useParams();
-  const product = products.find((p) => p._id === productId);
+  const { data } = useLoaderData();
+  const product = data;
 
   return (
     <>
-      <Link className="btn btn-light my-3" to="/">
+      <Link className="btn btn-light my-3" to="/product">
         Go Back
       </Link>
 
@@ -87,3 +88,11 @@ const ProductScreen = () => {
 };
 
 export default ProductScreen;
+
+export async function productLoader({ params }) {
+  const id = params.productId;
+
+  const response = await axios.get("http://localhost:5000/api/products/" + id);
+
+  return response;
+}

@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 import Rating from "./Rating";
 import { Link } from "react-router-dom";
+//import axios from "axios";
 
 const Product = ({ product }) => {
   return (
@@ -32,3 +33,12 @@ const Product = ({ product }) => {
 };
 
 export default Product;
+/*
+export async function productLoader(params) {
+  const id = params.productId;
+
+  const response = await axios.get("http://localhost:5000/api/products/" + id);
+
+  return response;
+}
+*/

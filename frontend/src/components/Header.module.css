@@ -1,0 +1,29 @@
+.navTexts {
+  text-decoration: none;
+  padding: 10px;
+  color: #c3cacb;
+}
+
+.navTexts:hover {
+  color: azure;
+}
+
+@media (min-width: 1000px) {
+  .active {
+    border-bottom: 2px solid whitesmoke; /* Style for larger screens */
+  }
+
+  .invisibleBorder {
+    border-bottom: 2px solid transparent; /* Style for larger screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .active {
+    border-bottom: 2px solid whitesmoke; /* Style for very large screens */
+  }
+
+  .invisibleBorder {
+    border-bottom: 2px solid transparent; /* Style for very large screens */
+  }
+}

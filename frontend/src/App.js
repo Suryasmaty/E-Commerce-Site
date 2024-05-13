@@ -1,8 +1,11 @@
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen, { loader } from "./screens/HomeScreen";
 import RootLayout from "./components/RootLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorScreen from "./screens/ErrorScreen";
 import ProductScreen from "./screens/ProductScreen";
+import { loader as productsLoader } from "./screens/HomeScreen";
+import { productLoader } from "./screens/ProductScreen";
+import OffersScreen from "./screens/OffersScreen";
 
 const router = createBrowserRouter([
   {
@@ -11,16 +14,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorScreen />,
     children: [
       {
-        index: true,
-        element: <HomeScreen />,
+        path: "product",
+        loader: productsLoader,
+        children: [
+          { index: true, element: <HomeScreen />, loader: loader },
+          {
+            path: ":productId",
+            loader: productLoader,
+            element: <ProductScreen />,
+          },
+        ],
       },
       {
-        path: "/product",
-        element: <HomeScreen />,
-      },
-      {
-        path: "/product/:productId",
-        element: <ProductScreen />,
+        path: "offers",
+        element: <OffersScreen />,
       },
     ],
   },
