@@ -1,0 +1,15 @@
+# .gitlab-ci.yml
+
+stages:
+  - frontend
+  - backend
+
+frontend:
+  stage: frontend
+  image: node:14  # Use a Node.js Docker image
+  before_script:
+    - cd frontend  # Navigate to the frontend directory
+    - npm install
+  script:
+    - npm run build  # Build the React app
+    # Add any additional steps like testing, linting, etc.
