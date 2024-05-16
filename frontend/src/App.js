@@ -6,6 +6,8 @@ import ProductScreen from "./screens/ProductScreen";
 import { loader as productsLoader } from "./screens/HomeScreen";
 import { productLoader } from "./screens/ProductScreen";
 import OffersScreen from "./screens/OffersScreen";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
         path: "product",
         loader: productsLoader,
         children: [
-          { index: true, element: <HomeScreen />, loader: loader },
+          { index: true, element: <HomeScreen />, loader: loader }, //loader: loader
           {
             path: ":productId",
             loader: productLoader,
