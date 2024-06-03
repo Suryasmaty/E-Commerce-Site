@@ -6,9 +6,16 @@ import ProductScreen from "./screens/ProductScreen";
 import { loader as productsLoader } from "./screens/HomeScreen";
 import { productLoader } from "./screens/ProductScreen";
 import OffersScreen from "./screens/OffersScreen";
-import { Provider } from "react-redux";
-import store from "./store/store";
 
+import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import ShippingScreen from "./screens/ShippingScreen";
+import PrivateRoute from "./components/PrivateRoute";
+import PaymentScreen from "./screens/PaymentScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from "./screens/OrderScreen";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,12 +24,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "product",
-        loader: productsLoader,
+        //loader: productsLoader,
         children: [
-          { index: true, element: <HomeScreen />, loader: loader }, //loader: loader
+          {
+            index: true,
+            element: <HomeScreen />,
+            //loader: loader
+          },
           {
             path: ":productId",
-            loader: productLoader,
+            //loader: productLoader,
             element: <ProductScreen />,
           },
         ],
@@ -31,12 +42,51 @@ const router = createBrowserRouter([
         path: "offers",
         element: <OffersScreen />,
       },
+      {
+        path: "cart",
+        element: <CartScreen />,
+      },
+      {
+        path: "login",
+        element: <LoginScreen />,
+      },
+      {
+        path: "register",
+        element: <RegisterScreen />,
+      },
+
+      {
+        path: "",
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "/shipping",
+            element: <ShippingScreen />,
+          },
+          {
+            path: "/payment",
+            element: <PaymentScreen />,
+          },
+          {
+            path: "/placeorder",
+            element: <PlaceOrderScreen />,
+          },
+          {
+            path: "/order/:id",
+            element: <OrderScreen />,
+          },
+        ],
+      },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <PayPalScriptProvider deferLoading={false}>
+      <RouterProvider router={router} />
+    </PayPalScriptProvider>
+  );
 }
 
 export default App;

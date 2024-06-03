@@ -1,6 +1,10 @@
 import { Container } from "react-bootstrap";
 import Footer from "./Footer";
 import Header from "./Header";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Outlet } from "react-router-dom";
 const RootLayout = () => {
   return (
@@ -13,6 +17,7 @@ const RootLayout = () => {
       </main>
 
       <Footer />
+      <ToastContainer />
     </>
   );
 };

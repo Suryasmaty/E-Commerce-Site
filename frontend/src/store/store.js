@@ -1,7 +1,9 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { apiSlice } from "../slices/apiSlice";
+import cartSliceReducer from "../slices/cartSlice";
+import authSliceReducer from "../slices/authSlice";
 
-const initialState = { x: 0 };
+//const initialState = { x: 0 };
 
 // const demoSlice = createSlice({
 //   name: "demo",
@@ -16,6 +18,8 @@ const initialState = { x: 0 };
 const rootReducer = {
   // Other reducers...
   [apiSlice.reducerPath]: apiSlice.reducer,
+  cart: cartSliceReducer,
+  auth: authSliceReducer,
 };
 
 const store = configureStore({

@@ -74,6 +74,10 @@ const orderSchema = new mongoose.Schema(
     deliveredAt: {
       type: Date,
     },
+    taxPrice: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );

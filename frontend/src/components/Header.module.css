@@ -1,29 +1,39 @@
-.navTexts {
+/* .navTexts {
   text-decoration: none;
   padding: 10px;
   color: #c3cacb;
-}
+} */
 
-.navTexts:hover {
+/* .navTexts:hover {
   color: azure;
 }
 
-@media (min-width: 1000px) {
+.active {
+  color: white;
+  
+} */
+
+.nav-link {
+  color: white; /* ensure the color doesn't change on focus */
+}
+
+/* @media (min-width: 1000px) {
   .active {
-    border-bottom: 2px solid whitesmoke; /* Style for larger screens */
+    border-bottom: 2px solid whitesmoke; 
   }
 
   .invisibleBorder {
-    border-bottom: 2px solid transparent; /* Style for larger screens */
+    border-bottom: 2px solid transparent; 
   }
 }
+
 
 @media (min-width: 992px) {
   .active {
-    border-bottom: 2px solid whitesmoke; /* Style for very large screens */
+    border-bottom: 2px solid whitesmoke; 
   }
 
   .invisibleBorder {
-    border-bottom: 2px solid transparent; /* Style for very large screens */
+    border-bottom: 2px solid transparent; 
   }
-}
+}  */
